@@ -11,7 +11,7 @@ export async function login(credentials) {
   return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
 }
 
-export async function sendRequest(url, method = 'GET', payload = null){
+async function sendRequest(url, method = 'GET', payload = null){
   // Fetch accepts an options object as the 2nd argument
   // used to include a data payload, set headers, etc. 
   const options = { method };
