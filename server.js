@@ -9,8 +9,8 @@ require('dotenv').config();
 require('./config/database');
 
 // Local variables will come in handy for holding retrieved documents
-let user, item, category, order;
-let users, items, categories, orders;
+let user, item, category, list;
+let users, items, categories, lists;
 
 const app = express();
 
@@ -27,6 +27,11 @@ app.use(require('./config/checkToken'));
 
 // http://localhost:3001/api/users
 app.use('/api/users', require('./routes/api/users'));
+
+// Protect the API routes below from anonymous users
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/items', ensureLoggedIn, require('./routes/api/items'));
+app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
 
 // Put API routes here, before the "catch all" route
 
