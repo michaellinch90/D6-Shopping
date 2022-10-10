@@ -6,8 +6,9 @@ const categorySchema = new Schema({
         type: String,
         required: true
     },
+    priceRange: String,
     sortOrder: Number
 }, { timestamps: true });
 
-modeule.exports = mongoose.model('Category', categorySchema);
+module.exports = mongoose.model('Category', categorySchema);
 

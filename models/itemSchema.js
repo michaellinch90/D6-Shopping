@@ -2,12 +2,12 @@
 //so that we know we are exporting a schema
 //not a compiled model
 
-const Schema = require('mongoose');
+const Schema = require('mongoose').Schema;
 
 const itemSchema = new Schema({
     name: {
         type: String,
-        required: True
+        required: true
     },
     picture: String,
     category: {
@@ -16,9 +16,9 @@ const itemSchema = new Schema({
     },
     price: {
         type: Number,
-        required: True,
+        required: true,
         default: 0
     }
 }, {
-    timestamps: True
+    timestamps: true
 });
