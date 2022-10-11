@@ -8,8 +8,8 @@ const Item = require('./models/item');
 
     await Category.deleteMany({});
     const categories = await Category.create([
-        {name: 'Produce', priceRange:'$1-$3', sortOrder: 20},
-        {name: 'Meat', priceRange:'$4-$7', sortOrder: 10},
+        {name: 'Produce', priceRange:'$1-$3', sortOrder: 10},
+        {name: 'Meat', priceRange:'$4-$7', sortOrder: 20},
         {name: 'Frozen', priceRange:'$2-$7', sortOrder: 30},
         {name: 'Grocery', priceRange:'$1-$5', sortOrder: 40},
         {name: 'Bakery', priceRange: '$1-$5', sortOrder:50},
@@ -43,16 +43,16 @@ const Item = require('./models/item');
         {name: 'Veggies', picture: '', category: categories[2], price: 2.00},
         {name: 'Juice', picture: '', category: categories[2], price: 2.00},
         //categories[3] = Grocery
-        {name: 'Drink Mix', picture: '', category: categories[0], price: 1.00},
-        {name: 'Pasta', picture: '', category: categories[0], price: 1.00},
-        {name: 'Rice', picture: '', category: categories[0], price: 1.00},
-        {name: 'Spaghetti Sauce', picture: '', category: categories[0], price: 1.00},
-        {name: 'Beans', picture: '', category: categories[0], price: 1.00},
-        {name: 'Chips', picture: '', category: categories[0], price: 1.00},
-        {name: 'Tortillas', picture: '', category: categories[0], price: 1.00},
+        {name: 'Drink Mix', picture: '', category: categories[3], price: 1.00},
+        {name: 'Pasta', picture: '', category: categories[3], price: 1.00},
+        {name: 'Rice', picture: '', category: categories[3], price: 1.00},
+        {name: 'Spaghetti Sauce', picture: '', category: categories[3], price: 1.00},
+        {name: 'Beans', picture: '', category: categories[3], price: 1.00},
+        {name: 'Chips', picture: '', category: categories[3], price: 1.00},
+        {name: 'Tortillas', picture: '', category: categories[3], price: 1.00},
         //categories[4] = Bakery
-        {name: 'Sliced Bread', picture: '', category: categories[0], price: 1.00},
-        {name: 'Garlic Bread', picture: '', category: categories[0], price: 1.00},
+        {name: 'Sliced Bread', picture: '', category: categories[4], price: 1.00},
+        {name: 'Garlic Bread', picture: '', category: categories[4], price: 1.00},
         {name: 'Buns', picture: '', category: categories[4], price: 1.00},
         {name: 'Cookies', picture: '', category: categories[4], price: 1.00},
         {name: 'Brownies', picture: '', category: categories[4], price: 1.00},
