@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api'
-
+import * as orderAPI from '../../utilities/orders.api'
 import './NewOrderPage.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
@@ -13,7 +13,7 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut';
 export default function NewOrderPage({ user, setUser }) {
   const [orderItems, setOrderItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
-  // const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
   
 
@@ -34,10 +34,11 @@ export default function NewOrderPage({ user, setUser }) {
     }
     getItems();
 
-    // async function getCart() {
-    //   const cart = await orderAPI.getCart();
-    //   setCart(cart)
-    // }
+    async function getCart() {
+      const cart = await orderAPI.getCart();
+      setCart(cart)
+    }
+    getCart();
   }, []);
 
   return (

@@ -44,3 +44,19 @@ orderSchema.virtual('totalQty').get(function (){
 orderSchema.virtual('orderId').get(function (){
     return this.id.slice(-6).toUpperCase();
 });
+
+//statics are only callable on models
+orderSchema.static.getCart = function (userId) {
+    //this is bound to the model
+    //return the promis that resolves to a cart
+    //unpaid order
+    return this.findOneAndUpdate(
+        { user: userID, isPaid: false},
+        //update - in the case the cart is upserted
+        { user: userId },
+        //upsert option creates the doc if it doesnt exist
+        { upsert: true, new: true}
+    );
+};
+
+module.exports = mongoose.model('Order', orderSchema);

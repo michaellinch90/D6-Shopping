@@ -1,9 +1,11 @@
-//const Order = require('../models/order')
+const Order = require('../models/order')
 //const item = require('../models/item')
 
 //a cart is the unpaid items
 async function cart(req, res){
-
+//cart is unpaid items
+const cart = await Order.getCart(req.user_id);
+res.json(cart);
 }
 
 //add an item the the cart
