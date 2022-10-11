@@ -8,7 +8,7 @@ export default function CategoryList({
         <li
             key={cat}
             className={cat === activeCat ? 'active' : ''}
-            onClick={() => setActiveCat}
+            onClick={() => setActiveCat(cat)}
         >
             {cat}
         </li>
