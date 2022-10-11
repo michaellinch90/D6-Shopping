@@ -1,6 +1,6 @@
 import './CartDetail.css'
 
-export default function CArtDetail() {
+export default function CartDetail() {
     return (
         <div className='CartDetail'>
             <div className='section-heading'>

@@ -38,7 +38,3 @@ async function sendRequest(url, method = 'GET', payload = null){
 
   throw new Error('Bad Request');
 }
-
-export function checkToken() {
-  return sendRequest(`${BASE_URL}/check-token`);
-}

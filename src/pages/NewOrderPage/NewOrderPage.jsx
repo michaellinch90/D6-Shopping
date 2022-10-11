@@ -5,7 +5,7 @@ import './NewOrderPage.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import OrderList from '../../components/OrderList/OrderList';
-import CategoryList from '../../components/CategoryList/CategorList';
+import CategoryList from '../../components/CategoryList/CategoryList';
 import CartDetail from '../../components/CartDetail/CartDetail';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
@@ -13,7 +13,7 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut';
 export default function NewOrderPage({ user, setUser }) {
   const [orderItems, setOrderItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
-  const [cart, setCart] = useState(null);
+  // const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
   
 
@@ -41,7 +41,7 @@ export default function NewOrderPage({ user, setUser }) {
   }, []);
 
   return (
-    <main>
+    <main className='NewOrderPage'>
       <aside>
         <Logo />
         <CategoryList 
