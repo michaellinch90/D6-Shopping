@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api'
-import * as orderAPI from '../../utilities/orders.api'
+import * as ordersAPI from '../../utilities/orders-api'
 import './NewOrderPage.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
@@ -15,28 +15,23 @@ export default function NewOrderPage({ user, setUser }) {
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
-  
 
-  
-  // useEffect(function() {
-  //   console.log('useEffect runs only after first render');
-  // }, [listItems]);
-
-  useEffect(function(){
-    async function getItems(){
+  useEffect(function() {
+    async function getItems() {
       const items = await itemsAPI.getAll();
       categoriesRef.current = items.reduce((cats, item) => {
         const cat = item.category.name;
-        return cats.includes(cat) ? cats : [...cats, cat]
+        return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
       setOrderItems(items);
-      setActiveCat(categoriesRef.current[0]);
+      setActiveCat(items[0].category.name);
     }
     getItems();
 
+    // Load cart (a cart is the unpaid order for the logged in user)
     async function getCart() {
-      const cart = await orderAPI.getCart();
-      setCart(cart)
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
     }
     getCart();
   }, []);
