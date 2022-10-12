@@ -21,7 +21,7 @@ const orderSchema = new Schema({
     //an ordeer belongs to a user
     user: { type: Schema.Types.ObjectId, ref: 'User'},
     //embeded list line items is logical
-    lineIteams: [lineItemSchema],
+    lineItems: [lineItemSchema],
     //unpaid item is the cart
     isPaid: { type: Boolean, default: false}
 }, {
