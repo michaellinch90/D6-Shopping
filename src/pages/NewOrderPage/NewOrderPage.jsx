@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api'
 import * as ordersAPI from '../../utilities/orders-api'
 import './NewOrderPage.css';
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import OrderList from '../../components/OrderList/OrderList';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -20,12 +20,10 @@ export default function NewOrderPage({ user, setUser }) {
   useEffect(function() {
     async function getItems() {
       const items = await itemsAPI.getAll();
-      console.log(items)
       categoriesRef.current = items.reduce((cats, item) => {
         const cat = item.category.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
-      console.log(items)
       setOrderItems(items);
       setActiveCat(items[0].category.name);
     }

@@ -13,6 +13,13 @@ export function addItemToCart(itemId){
     return sendRequest(`{BASE_URL}/cart/items/${itemId}`, 'POST')
 }
 
+// Update the item's qty in the cart
+// Will add the item to the order if not currently in the cart
+// Sending info via the data payload instead of a long URL
+export function setItemQtyInCart(itemId, newQty) {
+    return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty });
+  }
+
 // update the item's qty in the cart
 //will add item if not currently in cart
 //sends info via data to payload instead of long url
