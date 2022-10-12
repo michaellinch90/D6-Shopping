@@ -7,7 +7,7 @@ export function getCart(){
     return sendRequest(`${BASE_URL}/cart`)
 }
 
-export function assItemToCart(itemId){
+export function addItemToCart(itemId){
     //only sent item id for security reasons
     //no pricing
     return sendRequest(`{BASE_URL}/cart/items/${itemId}`, 'POST')

@@ -1,5 +1,5 @@
-const Order = require('../models/order')
-//const item = require('../models/item')
+const Order = require('../../models/order')
+// const Item = require('../../models/item')
 
 //a cart is the unpaid items
 async function cart(req, res) {
