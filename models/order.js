@@ -5,7 +5,7 @@ const itemSchema = require('./itemSchema');
 const lineItemSchema = new Schema({
     //set qty to 1 when new item pushed into lineItems
     qty: { type:Number, default: 1 },
-    item: itemSchema
+    item: { type: Schema.Types.ObjectId, ref: 'ItemSchema', required: true }
 }, {
     timestamps: true,
     //makes virtual for exxtPrice. serialize into json

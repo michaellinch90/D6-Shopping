@@ -5,7 +5,7 @@ export default function OrderList({ orderItems, handleAddToOrder }) {
     const items = orderItems.map(item =>
         <OrderListItem 
         key = {item._id}
-        orderItem={item}
+        item={item}
         handleAddToOrder={handleAddToOrder}
         />
         );
