@@ -3,7 +3,7 @@ import LineItem from '../LineItem/LineItem'
 
 //dispplays the details of any order 
 //unpaid
-export default function CartDetail({order}) {
+export default function CartDetail({order, handleChangeQty, handleCheckout}) {
 
     if (!order) return null;
 
@@ -11,6 +11,7 @@ export default function CartDetail({order}) {
         <LineItem
             lineItem={item}
             isPaid={order.isPaid}
+            handleChangeQty={handleChangeQty}
             key={item._id}
         />
         )
@@ -35,7 +36,7 @@ export default function CartDetail({order}) {
                             :
                             <button
                                 className='btn-sm'
-                                onClick={() => alert('clicked')}
+                                onClick={handleCheckout}
                                 disabled={!lineItems.length}
                             >
                              CHECKOUT   
