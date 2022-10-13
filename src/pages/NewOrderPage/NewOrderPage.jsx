@@ -40,6 +40,7 @@ export default function NewOrderPage({ user, setUser }) {
   // Event Handlers
 
   async function handleAddToOrder(itemId) {
+    console.log(itemId)
     const cart = await ordersAPI.addItemToCart(itemId);
     setCart(cart);
   }
