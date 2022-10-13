@@ -3,8 +3,9 @@ const Order = require('../../models/order')
 
 //a cart is the unpaid items
 async function cart(req, res) {
+    console.log(req)
     //cart is unpaid items
-    const cart = await Order.getCart(req.user_id);
+    const cart = await Order.getCart(req.user._id);
     res.json(cart);
 }
 
