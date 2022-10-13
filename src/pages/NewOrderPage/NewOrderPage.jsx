@@ -79,7 +79,6 @@ export default function NewOrderPage({ user, setUser }) {
         handleCheckout={handleCheckout}
       />
     </main>
-    
   );
 }
 
