@@ -51,7 +51,7 @@ export default function NewOrderPage({ user, setUser }) {
 
   async function handleCheckout() {
     await ordersAPI.checkout();
-    navigate('/order');
+    navigate('/orders');
   }
 
   return (
@@ -63,7 +63,7 @@ export default function NewOrderPage({ user, setUser }) {
         activeCat = {activeCat}
         setActiveCat = {setActiveCat}
         />
-        <Link to = '/order' className='button btn-sm'>PREVIOUS ORDERS</Link>
+        <Link to = '/orders' className='button btn-sm'>PREVIOUS ORDERS</Link>
         <UserLogOut 
         user={user}
         setUser = {setUser}
