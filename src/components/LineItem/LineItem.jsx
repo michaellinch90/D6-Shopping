@@ -3,7 +3,7 @@ import './LineItem.css'
 export default function LineItem({ lineItem, isPaid, handleChangeQty }){
     return(
         <div className='LineItem'>
-            {/* <div className='flex-ctr-ctr'>{lineItem.item.picture}</div> */}
+            <div className='flex-ctr-ctr'>{lineItem.item.picture}</div>
             <div className='flex-ctr-ctr flex-col'>
                 <span className='align-ctr'>{lineItem.item.name}</span>
                 <span>{lineItem.item.price.toFixed(2)}</span>
@@ -23,7 +23,7 @@ export default function LineItem({ lineItem, isPaid, handleChangeQty }){
                     >+</button>
                 }
             </div>
-            <div className='ext-price'> ${lineItem.extPrice.toFixed(2)}</div>
+            {/* <div className="ext-price">${lineItem.extPrice.toFixed(2)}</div> */}
         </div>
     );
 }
