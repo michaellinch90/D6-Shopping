@@ -37,10 +37,10 @@ export default function NewOrderPage({ user, setUser }) {
     getCart();
   }, []);
 
-  // Even Handlers
+  // Event Handlers
 
-  async function handleAddToOrder(itemId){
-    const cart= await ordersAPI.addItemToCart(itemId);
+  async function handleAddToOrder(itemId) {
+    const cart = await ordersAPI.addItemToCart(itemId);
     setCart(cart);
   }
 
@@ -49,9 +49,9 @@ export default function NewOrderPage({ user, setUser }) {
     setCart(cart);
   }
 
-  async function handleCheckout(){
-    const cart = await ordersAPI.checkout();
-    navigate.pushState('/orders')
+  async function handleCheckout() {
+    await ordersAPI.checkout();
+    navigate.push('/orders');
   }
 
   return (
