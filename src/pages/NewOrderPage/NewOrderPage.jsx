@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import * as itemsAPI from '../../utilities/items-api'
-
+import * as ordersAPI from '../../utilities/orders-api'
 import './NewOrderPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import OrderList from '../../components/OrderList/OrderList';
 import CategoryList from '../../components/CategoryList/CategoryList';
@@ -13,32 +13,46 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut';
 export default function NewOrderPage({ user, setUser }) {
   const [orderItems, setOrderItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
-  // const [cart, setCart] = useState(null);
+  const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
-  
+  const navigate = useNavigate();
 
-  
-  // useEffect(function() {
-  //   console.log('useEffect runs only after first render');
-  // }, [listItems]);
-
-  useEffect(function(){
-    async function getItems(){
+  useEffect(function() {
+    async function getItems() {
       const items = await itemsAPI.getAll();
       categoriesRef.current = items.reduce((cats, item) => {
         const cat = item.category.name;
-        return cats.includes(cat) ? cats : [...cats, cat]
+        return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
       setOrderItems(items);
-      setActiveCat(categoriesRef.current[0]);
+      setActiveCat(items[0].category.name);
     }
     getItems();
 
-    // async function getCart() {
-    //   const cart = await orderAPI.getCart();
-    //   setCart(cart)
-    // }
+    // Load cart (a cart is the unpaid order for the logged in user)
+    async function getCart() {
+      const cart = await ordersAPI.getCart();
+      setCart(cart);
+    }
+    getCart();
   }, []);
+
+  // Event Handlers
+
+  async function handleAddToOrder(itemId) {
+    const cart = await ordersAPI.addItemToCart(itemId);
+    setCart(cart);
+  }
+
+  async function handleChangeQty(itemId, newQty){
+    const cart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+    setCart(cart);
+  }
+
+  async function handleCheckout() {
+    await ordersAPI.checkout();
+    navigate('/order');
+  }
 
   return (
     <main className='NewOrderPage'>
@@ -49,7 +63,7 @@ export default function NewOrderPage({ user, setUser }) {
         activeCat = {activeCat}
         setActiveCat = {setActiveCat}
         />
-        <Link to = '/orders' className='button-sm'>PREVIOUS ORDERS</Link>
+        <Link to = '/order' className='button btn-sm'>PREVIOUS ORDERS</Link>
         <UserLogOut 
         user={user}
         setUser = {setUser}
@@ -57,10 +71,14 @@ export default function NewOrderPage({ user, setUser }) {
       </aside>
       <OrderList 
       orderItems = {orderItems.filter(item => item.category.name === activeCat)}
+      handleAddToOrder={handleAddToOrder}
       />
-      <CartDetail />
+      <CartDetail 
+        order={cart}
+        handleChangeQty={handleChangeQty}
+        handleCheckout={handleCheckout}
+      />
     </main>
-    
   );
 }
 

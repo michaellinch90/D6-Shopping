@@ -1,10 +1,10 @@
 import './LineItem.css'
 
-export default function LineItem({ lineItem, isPaid }){
+export default function LineItem({ lineItem, isPaid, handleChangeQty }){
     return(
         <div className='LineItem'>
             <div className='flex-ctr-ctr'>{lineItem.item.picture}</div>
-            <div className='flex-ctr-ctr'>
+            <div className='flex-ctr-ctr flex-col'>
                 <span className='align-ctr'>{lineItem.item.name}</span>
                 <span>{lineItem.item.price.toFixed(2)}</span>
             </div>
@@ -12,17 +12,18 @@ export default function LineItem({ lineItem, isPaid }){
                 {!isPaid &&
                     <button 
                         className='btn-xs'
-                        onClick={() => alert('clicked')}
+                        onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
                     >-</button>
                 }
+                <span>{lineItem.qty}</span>
                 {!isPaid &&
                     <button 
                         className='btn-xs'
-                        onClick={() => alert('clicked')}
+                        onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}
                     >+</button>
                 }
             </div>
-            <div className='ext-price'> ${lineItem.extPrice.toFixed(2)}</div>
+            {/* <div className="ext-price">${lineItem.extPrice.toFixed(2)}</div> */}
         </div>
     );
 }
