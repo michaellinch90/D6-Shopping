@@ -24,7 +24,7 @@ export function setItemQtyInCart(itemId, newQty) {
 //will add item if not currently in cart
 //sends info via data to payload instead of long url
 export function setItemInCart(itemId, newQty) {
-    return sendRequest(`${BASE_URL}/cart/qty`, 'PUT, { item, newQty }');
+    return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty });
 }
 
 //updates the items to isPaid to true

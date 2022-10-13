@@ -9,7 +9,7 @@ const lineItemSchema = new Schema({
 }, {
     timestamps: true,
     //makes virtual for exxtPrice. serialize into json
-    toJSON: { virtuals: true }
+    toJSON: { vituals: true }
 });
 
 lineItemSchema.virtual('extPrice').get(function () {
