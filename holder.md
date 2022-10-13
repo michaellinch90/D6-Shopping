@@ -18,8 +18,8 @@ function App() {
         <>
           <NavBar />
           <Routes>
-            <Route path="/orders/new" element={<NewOrderPage />} />
-            <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route path="/order/new" element={<NewOrderPage />} />
+            <Route path="/order" element={<OrderHistoryPage />} />
           </Routes>
         </>
         :
