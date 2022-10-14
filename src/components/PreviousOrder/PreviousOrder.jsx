@@ -5,9 +5,9 @@ export default function PreviousOrder({orders, activeOrder, handleSelectOrder}){
     const orderItems = orders.map(item =>
         <PreviousOrderItem
         order={item}
-        isSelected={item ===activeOrder}
+        isSelected={item === activeOrder}
         handleSelectOrder={handleSelectOrder}
-        key={item.id}
+        key={item._id}
         />
         )
         

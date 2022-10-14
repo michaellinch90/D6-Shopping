@@ -1,4 +1,4 @@
-.OrderListItem {
+.PreviousOrderItem {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -13,17 +13,20 @@
     cursor: pointer;
   }
   
-  .OrderListItem > div> div:first-child {
+  .PreviousOrderItem
+ > div> div:first-child {
     margin-bottom: .5vmin;
   }
   
-  .OrderListItem.selected {
+  .PreviousOrderItem
+.selected {
     border-color: var(--orange);
     border-width: .2vmin;
     cursor: default;
   }
   
-  .OrderListItem:not(.selected):hover {
+  .PreviousOrderItem
+:not(.selected):hover {
     border-color: var(--orange);
     border-width: .2vmin;
   }

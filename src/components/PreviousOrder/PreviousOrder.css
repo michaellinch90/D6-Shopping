@@ -1,4 +1,4 @@
-/* .OrderList {
+.PreviousOrder {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,10 +10,10 @@
     overflow-y: scroll;
   }
   
-  .OrderList .no-orders {
+  .PreviousOrder .no-orders {
     color: var(--text-light);
     font-size: 2vmin;
     position: absolute;
     top: calc(50vh);
   }
-   */
+  

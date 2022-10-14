@@ -3,11 +3,11 @@ import sendRequest from "./send-request-api";
 const BASE_URL = '/api/orders'
 
 //retireve unpaid item 
-export function getCart(){
+export function getCart() {
     return sendRequest(`${BASE_URL}/cart`)
 }
 
-export function addItemToCart(itemId){
+export function addItemToCart(itemId) {
     //only sent item id for security reasons
     //no pricing
     return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST')
@@ -18,7 +18,7 @@ export function addItemToCart(itemId){
 // Sending info via the data payload instead of a long URL
 export function setItemQtyInCart(itemId, newQty) {
     return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty });
-  }
+}
 
 // update the item's qty in the cart
 //will add item if not currently in cart
@@ -27,11 +27,12 @@ export function setItemInCart(itemId, newQty) {
     return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty });
 }
 
-//updates the items to isPaid to true
-export function checkout(){
-    return sendRequest(`${BASE_URL}/cart/checkout`, 'POST')
+//updates the order's (cart's) isPaid property to true
+export function checkout() {
+    //changing data on the server, so make it a POST request
+    return sendRequest(`${BASE_URL}/cart/checkout`, 'POST');
 }
 
-export function getOrderHistory(){
-    return sendRequest(`${BASE_URL}/history`)
+export function getOrderHistory() {
+    return sendRequest(`${BASE_URL}/history`);
 }
