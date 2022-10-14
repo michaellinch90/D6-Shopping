@@ -22,17 +22,19 @@ async function setItemQtyInCart(req, res) {
     res.json(cart);
 }
 
-//update the carts isPaid to true
-async function checkout(req, res) {
-    const cart = await Order.getCart(req.user._id);
-    cart.isPaid = true;
-    await cart.save();
-    res.json(cart);
+//return logged in user's paid 
+async function history(req, res) {
+    //sort most recent orders first
+    const orders = await Order
+        .find({ user: req.user._id, isPaid:true})
+        .sort('-update').exec();
+    res.json(orders);
 }
 
 module.exports = {
     cart,
     addToCart,
     setItemQtyInCart,
-    checkout
+    checkout,
+    history
 }
