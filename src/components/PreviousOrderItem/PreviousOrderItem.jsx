@@ -1,4 +1,4 @@
-import './OrderListItem.css'
+import './PreviousOrderItem.css'
 
 export default function OrderListItem({ order, isSelected, handleSelectorOrder }){
     return (
