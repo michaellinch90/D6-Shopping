@@ -30,9 +30,19 @@ async function checkout(req, res) {
     res.json(cart);
 }
 
+//return logged in user's paid 
+async function history(req, res) {
+    //sort most recent orders first
+    const orders = await Order
+        .find({ user: req.user._id, isPaid:true})
+        .sort('-update').exec();
+    res.json(orders);
+}
+
 module.exports = {
     cart,
     addToCart,
     setItemQtyInCart,
-    checkout
+    checkout,
+    history
 }

@@ -1,10 +1,13 @@
 import './UserLogOut.css'
 import { logOut } from '../../utilities/users-service'
+import * as userService from '../../utilities/users-service'
 
 export default function UserLogOut({ user, setUser }) {
     function handleLogOut() {
         logOut();
         setUser(null);
+        console.log(user.name)
+        console.log(user.email)
     }
 
     return (

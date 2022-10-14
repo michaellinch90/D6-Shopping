@@ -1,21 +1,50 @@
-import { useState } from 'react';
-import {checkToken} from '../../utilities/users-service';
+import './OrderHistoryPage.css';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import * as ordersAPI from '../../utilities/orders-api';
+import Logo from '../../components/Logo/Logo';
+import UserLogOut from '../../components/UserLogOut/UserLogOut';
+import PreviousOrder from '../../components/PreviousOrder/PreviousOrder';
+import CartDetail from '../../components/CartDetail/CartDetail';
 
+export default function OrderHistoryPage({ user, setUser }) {
+  /*--- State --- */
+  const [orders, setOrders] = useState([]);
+  const [activeOrder, setActiveOrder] = useState(null);
 
-export default function OrderHistoryPage() {
+  /*--- Side Effects --- */
+  useEffect(function () {
+    // Load previous orders (paid)
+    async function fetchOrderHistory() {
+      const orders = await ordersAPI.getOrderHistory();
+      setOrders(orders);
+      // If no orders, activeOrder will be set to null below
+      setActiveOrder(orders[0] || null);
+    }
+    fetchOrderHistory();
+  }, []);
 
-  async function handleCheckToken() {
-    // alert('clicked');
-    const expDate = await checkToken();
-    console.log(`expDate is ${expDate}`)
+  /*--- Event Handlers --- */
+  function handleSelectOrder(order) {
+    setActiveOrder(order);
   }
 
+  /*--- Rendered UI --- */
   return (
-    <>
-      <h1>ListHistoryPage</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </>
+    <main className="OrderHistoryPage">
+      <aside>
+        <Logo />
+        <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
+        {/* <UserLogOut user={user} setUser={setUser} /> */}
+      </aside>
+      <PreviousOrder
+        orders={orders}
+        activeOrder={activeOrder}
+        handleSelectOrder={handleSelectOrder}
+      />
+      <CartDetail
+        order={activeOrder}
+      />
+    </main>
   );
 }
-
-
