@@ -50,12 +50,12 @@ And the student can logout
 
 #### Technologies Used
 
--Full MERN Stack App
-    -Mongoose
-    -Express
-    -React
-    -Node.Js
--Heroku
+- Full MERN Stack App
+    - Mongoose
+    - Express
+    - React
+    - Node.Js
+- Heroku
 
 
 
@@ -106,7 +106,7 @@ And the student can logout
 
 
 
-- [LinkdIn](https://www.linkedin.com/in/michael-linch/)
+-[LinkdIn](https://www.linkedin.com/in/michael-linch/)
 
 
 
