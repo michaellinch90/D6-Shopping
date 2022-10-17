@@ -1,9 +1,10 @@
 import './LogoSmall.css';
+import logo from './thePSmall.png'
 
 export default function LogoSmall() {
     return (
         <div className='LogoSmall'>
-            <img className='thePSmall' src ="https://i.imgur.com/l1tpNwl.png"></img> 
+            <img className='thePSmall' src ={logo}></img> 
         </div>
     );
 }
