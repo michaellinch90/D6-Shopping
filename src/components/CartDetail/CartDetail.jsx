@@ -24,7 +24,7 @@ export default function CartDetail({order, handleChangeQty, handleCheckout}) {
                     :
                     <span> New Order </span>
                 }
-                <span>{new Date(order.updateAt).toLocaleDateString()}</span>
+                <span>{new Date(order.updatedAt).toLocaleDateString()}</span>
             </div>
             <div className='line-item-container flex-ctr-ctr flex-col scroll-y'>
                 {lineItems.length ?
@@ -42,8 +42,8 @@ export default function CartDetail({order, handleChangeQty, handleCheckout}) {
                              CHECKOUT   
                             </button>
                         }
-                        <span> {order.totalQty} </span>
-                        <span className='right'> ${order.orderTotal.toFixed(2)} </span>
+                        <span> Total Qty: {order.totalQty} </span>
+                        <span className='right'>Total: ${order.orderTotal.toFixed(2)} </span>
                         </section>
                     </>
                     :

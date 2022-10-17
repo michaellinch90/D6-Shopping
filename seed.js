@@ -20,7 +20,7 @@ const Item = require('./models/item');
     await Item.deleteMany({});
     const items = await Item.create ([
         // categories[0] = Produce
-        {name: 'Carrots', picture: '', category: categories[0], price: 1.00},
+        {name: 'Carrots', picture: '🥕', category: categories[0], price: 1.00},
         {name: 'Lettuce', picture: '', category: categories[0], price: 1.50},
         {name: 'Tomatoes', picture: '', category: categories[0], price: 2.50},
         {name: 'Onion', picture: '', category: categories[0], price: 1.00},
