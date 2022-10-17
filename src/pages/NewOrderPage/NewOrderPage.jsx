@@ -11,12 +11,14 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
 
 export default function NewOrderPage({ user, setUser }) {
+  //states
   const [orderItems, setOrderItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [cart, setCart] = useState(null);
   const categoriesRef = useRef([]);
   const navigate = useNavigate();
 
+  //even handlers
   useEffect(function() {
     async function getItems() {
       const items = await itemsAPI.getAll();
