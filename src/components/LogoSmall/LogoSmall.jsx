@@ -1,8 +1,8 @@
-import './Logo.css';
+import './LogoSmall.css';
 
-export default function Logo() {
+export default function LogoSmall() {
     return (
-        <div className='Logo'>
+        <div className='LogoSmall'>
             <img className='theP' src ="http://powayhighfootball.com/wp-content/uploads/2022/01/cropped-Untitled_Artwork-4.png"></img>
         </div>
     );

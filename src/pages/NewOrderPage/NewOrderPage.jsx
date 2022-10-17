@@ -3,7 +3,7 @@ import * as itemsAPI from '../../utilities/items-api'
 import * as ordersAPI from '../../utilities/orders-api'
 import './NewOrderPage.css';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../../components/Logo/Logo';
+import LogoSmall from '../../components/LogoSmall/LogoSmall';
 import OrderList from '../../components/OrderList/OrderList';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import CartDetail from '../../components/CartDetail/CartDetail';
@@ -57,7 +57,7 @@ export default function NewOrderPage({ user, setUser }) {
   return (
     <main className='NewOrderPage'>
       <aside>
-        <Logo />
+        <LogoSmall />
         <CategoryList 
         categories = {categoriesRef.current}
         activeCat = {activeCat}
