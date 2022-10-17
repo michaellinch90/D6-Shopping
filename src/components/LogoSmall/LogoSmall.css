@@ -1,4 +1,4 @@
-.Logo {
+.LogoSmall {
     height: 12vmin;
     width: 12vmin;
     display: flex;
@@ -10,5 +10,5 @@
   }
 
   .theP {
-    height: 30vmin;
+    height: 14vmin;
   }
