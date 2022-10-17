@@ -6,6 +6,7 @@ import Logo from '../../components/Logo/Logo';
 import UserLogOut from '../../components/UserLogOut/UserLogOut';
 import PreviousOrder from '../../components/PreviousOrder/PreviousOrder';
 import CartDetail from '../../components/CartDetail/CartDetail';
+import LogoSmall from '../../components/LogoSmall/LogoSmall';
 
 export default function OrderHistoryPage({ user, setUser }) {
   /*--- State --- */
@@ -33,7 +34,7 @@ export default function OrderHistoryPage({ user, setUser }) {
   return (
     <main className="OrderHistoryPage">
       <aside>
-        <Logo />
+        <LogoSmall />
         <Link to="/orders/new" className="button btn-sm">NEW ORDER</Link>
         {/* <UserLogOut user={user} setUser={setUser} /> */}
       </aside>
