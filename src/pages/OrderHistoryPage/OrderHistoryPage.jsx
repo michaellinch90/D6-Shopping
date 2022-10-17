@@ -9,11 +9,11 @@ import CartDetail from '../../components/CartDetail/CartDetail';
 import LogoSmall from '../../components/LogoSmall/LogoSmall';
 
 export default function OrderHistoryPage({ user, setUser }) {
-  /*--- State --- */
+  //state
   const [orders, setOrders] = useState([]);
   const [activeOrder, setActiveOrder] = useState(null);
 
-  /*--- Side Effects --- */
+  //side effects
   useEffect(function () {
     // Load previous orders (paid)
     async function fetchOrderHistory() {
@@ -25,12 +25,12 @@ export default function OrderHistoryPage({ user, setUser }) {
     fetchOrderHistory();
   }, []);
 
-  /*--- Event Handlers --- */
+  //event handlers
   function handleSelectOrder(order) {
     setActiveOrder(order);
   }
 
-  /*--- Rendered UI --- */
+
   return (
     <main className="OrderHistoryPage">
       <aside>
