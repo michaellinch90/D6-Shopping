@@ -12,6 +12,7 @@
   }
   
   .CartOrder .line-item-container {
+    padding-top: 3vmin;
     margin-top: 3vmin;
     justify-content: flex-start;
     height: calc(100vh - 18vmin);
