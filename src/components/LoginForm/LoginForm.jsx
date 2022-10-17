@@ -33,6 +33,7 @@ export default function LoginForm({setUser}) {
 
     return (
         <div>
+            <h1 className='label'>D-6 Living</h1>
             <div className="form-container">
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <label>Email</label>

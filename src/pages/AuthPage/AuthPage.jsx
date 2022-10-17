@@ -3,6 +3,7 @@ import './AuthPage.css';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Logo from '../../components/Logo/Logo';
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function AuthPage({ setUser, user }) {
     const [showSignUp, setShowSignUp] = useState(false);
