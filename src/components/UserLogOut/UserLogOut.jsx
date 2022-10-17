@@ -6,8 +6,6 @@ export default function UserLogOut({ user, setUser }) {
     function handleLogOut() {
         logOut();
         setUser(null);
-        console.log(user.name)
-        console.log(user.email)
     }
 
     return (
